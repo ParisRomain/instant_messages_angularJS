@@ -4,7 +4,7 @@ angular.module('mike.controllers', [])
 
 })
 
-.controller('signCtrl', function($scope, $state, Login) {
+.controller('signCtrl', function($scope, $state, Login, $window) {
 
     $scope.data = {};
     $scope.login = function() {
@@ -23,7 +23,9 @@ angular.module('mike.controllers', [])
       console.log($scope.data);
     }
     localStorage.setItem("0660282324", "MIKE");
-
+    $scope.goBack = function() {
+      $window.history.back();
+    }
     $scope.register = function() {
       if ($scope.data.phone === undefined) {
         console.log("vous devez renseiger votre numéro");
