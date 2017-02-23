@@ -6,6 +6,22 @@ angular.module('mike.controllers', [])
 
 .controller('signCtrl', function($scope, $state, $ionicPopup) {
 
+    $scope.data = {};
+    $scope.login = function() {
+      if ($scope.data.phone !== undefined && $scope.data.password !== undefined) {
+        if ($scope.data.phone === undefined) {
+          console.log("veuillez entrer votre numéro de téléphone");
+        } else if ($scope.data.password === undefined) {
+          console.log('veuillez entrer votre mot de passe');
+        } else {
+          if ($scope.data.phone == "0660282324" && $scope.data.password == 'MIKE') {
+            $state.go('tab.messages');
+            console.log("connexion validée");
+          }
+        }
+      }
+      console.log($scope.data);
+    }
 })
 
 .controller('tabCtrl', function($scope, $state) {

@@ -260,6 +260,6 @@ angular.module('mike', ['ionic', 'mike.services', 'mike.controllers'])
 
     ;
 
-    $urlRouterProvider.otherwise('/tab/messages');
+    $urlRouterProvider.otherwise('/walkthrough');
 
 })

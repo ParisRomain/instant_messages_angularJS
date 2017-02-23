@@ -14,7 +14,7 @@ angular.module('mike.services', [])
 
 .factory("User", function() {
     return function() {
-
+      
     }
 })
 
