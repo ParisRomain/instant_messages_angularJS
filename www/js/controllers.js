@@ -4,7 +4,7 @@ angular.module('mike.controllers', [])
 
 })
 
-.controller('signCtrl', function($scope, $state, $ionicPopup) {
+.controller('signCtrl', function($scope, $state, Login) {
 
     $scope.data = {};
     $scope.login = function() {
@@ -21,6 +21,25 @@ angular.module('mike.controllers', [])
         }
       }
       console.log($scope.data);
+    }
+    localStorage.setItem("0660282324", "MIKE");
+
+    $scope.register = function() {
+      if ($scope.data.phone === undefined) {
+        console.log("vous devez renseiger votre numéro");
+      } else if ($scope.data.email === undefined) {
+        console.log("vous devez renseigner votre adresse email");
+      } else if ($scope.data.password === undefined){
+        console.log("vous devez renseigner un mot de passe ");
+      } else if ($scope.data.repassword === undefined) {
+        console.log("vous devez enter à nouveau votre mot de passe");
+      } else {
+        if ($scope.data.password == $scope.data.repassword) {
+          // LoginUser.set($scope.data);
+          localStorage.setItem("user",JSON.stringify($scope.data));
+            $state.go('tab.messages');
+        }
+      }
     }
 })
 
